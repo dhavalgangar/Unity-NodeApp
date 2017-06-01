@@ -1,0 +1,76 @@
+Test
+===========================================
+## POST - createProject API, cURL commands
+===========================================
+
+	curl -X POST \
+  http://localhost:3000/createProject \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
+  -H 'postman-token: c63ff19a-15c5-d431-e576-860e44a0ecb9' \
+  -d '{
+	"id":5,
+	"projectName":"test project number 5",
+	"creationDate":"05232017 00:00:00",
+	"expiryDate":"06202017 00:00:00",
+	"enabled":true,
+	"targetCountries":["USA","INDIA","MEXICO","BRAZIL"],
+	"projectCost":9.5,
+	"projectUrl":"http://www.unity3d.com",
+	"targetKeys":[{"number":25,"keyword":"animation"},{"number":30,"keyword":"sports"},{"number":50,"keyword":"action"}]
+}'
+
+===========================================
+## GET - requestProject API, cURL commands
+===========================================
+
+1. When no parameters are specified
+
+	curl -X GET \
+  http://localhost:3000/requestProject \
+  -H 'cache-control: no-cache' \
+  -H 'postman-token: 731006a1-f40e-7440-c2f7-82efca95c0bd'
+
+
+2. When only projectid is specified
+
+	curl -X GET \
+  'http://localhost:3000/requestProject?projectid=5' \
+  -H 'cache-control: no-cache' \
+  -H 'postman-token: f12c4c2c-f2a4-312e-38cb-5f98f0dfe8f1'
+
+3. When only country, number and keyword are specified
+	
+	curl -X GET \
+  'http://localhost:3000/requestProject?country=INDIA&number=50&keyword=action' \
+  -H 'cache-control: no-cache' \
+  -H 'postman-token: 6fbbcc03-c642-9889-26ea-206ce73b284c'
+
+4. When only country, number are specified
+	
+	curl -X GET \
+  'http://localhost:3000/requestProject?country=MEXICO&number=30' \
+  -H 'cache-control: no-cache' \
+  -H 'postman-token: 0f8cf749-615d-0713-8a4d-49db386873ce'
+
+5. When only country is specified
+
+	curl -X GET \
+  'http://localhost:3000/requestProject?country=SPAIN' \
+  -H 'cache-control: no-cache' \
+  -H 'postman-token: 1314aa52-640c-de4d-7963-7244941f6e36'
+
+6. When only number is specified
+
+	curl -X GET \
+  'http://localhost:3000/requestProject?number=25' \
+  -H 'cache-control: no-cache' \
+  -H 'postman-token: 85c8ae5b-36e9-66a8-54d6-663e3492b37a'
+
+7. When only keyword is specified
+
+	curl -X GET \
+  'http://localhost:3000/requestProject?keyword=action' \
+  -H 'cache-control: no-cache' \
+  -H 'postman-token: 7d92b7c9-228a-2db4-3267-94b73dfac811'
+
